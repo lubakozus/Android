@@ -52,11 +52,11 @@ struct CalculatorBrain {
             }
         }
         if brainOperator.hasPrefixOperand {
-            if trailingNumber != nil || outputString.hasSuffix(")") || !(trailingOperator?.hasPostfixOperand ?? false) {
+            if trailingNumber != nil || outputString.hasSuffix(")") || !(trailingOperator?.hasPostfixOperand ?? true) {
                 add()
             }
         } else {
-            if !outputString.hasSuffix(")"), trailingOperator?.hasPostfixOperand ?? false {
+            if !outputString.hasSuffix(")"), trailingNumber == nil, trailingOperator?.hasPostfixOperand ?? true  {
                 add()
             }
         }
@@ -69,7 +69,7 @@ struct CalculatorBrain {
     }
     
     mutating func addCloseBracket() {
-        if trailingNumber != nil || outputString.hasSuffix(")"), outputString.countAll("(") > outputString.countAll(")") {
+        if trailingNumber != nil || outputString.hasSuffix(")") || !(trailingOperator?.hasPostfixOperand ?? true), outputString.countAll("(") > outputString.countAll(")") {
             outputString = outputString + ")"
         }
     }
