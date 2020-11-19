@@ -2,8 +2,8 @@
 //  CalculatorBrain.swift
 //  Calculator
 //
-//  Created by ILLIA HARKAVY on 9/17/20.
-//  Copyright © 2020 ILLIA HARKAVY. All rights reserved.
+//  Created by LIUBOU KOZUS on 9/17/20.
+//  Copyright © 2020 LIUBOU KOZUS. All rights reserved.
 //
 
 import Foundation
@@ -12,30 +12,6 @@ import MathParser
 struct CalculatorBrain {
     
     var outputString = ""
-    
-    var trailingOperator: BrainOperator? {
-        var outputString = self.outputString
-        while outputString.hasSuffix("(") {
-            outputString.removeLast()
-        }
-        return BrainOperator.allCases.first { brainOperator in
-            outputString.hasSuffix(brainOperator.rawValue)
-        }
-    }
-    
-    var trailingNumber: String? {
-        var outputString = self.outputString
-        var trailingNumber = ""
-        while let last = outputString.last, last.isNumber || last == "." {
-            trailingNumber.insert(last, at: trailingNumber.startIndex)
-            outputString.removeLast()
-        }
-        if trailingNumber.isEmpty {
-            return nil
-        } else {
-            return trailingNumber
-        }
-    }
     
     mutating func addDigit(_ digit: String) {
         if !outputString.hasSuffix(")"), trailingOperator?.hasPostfixOperand ?? true {
@@ -104,6 +80,29 @@ struct CalculatorBrain {
         }
     }
     
+    var trailingOperator: BrainOperator? {
+        var outputString = self.outputString
+        while outputString.hasSuffix("(") {
+            outputString.removeLast()
+        }
+        return BrainOperator.allCases.first { brainOperator in
+            outputString.hasSuffix(brainOperator.rawValue)
+        }
+    }
+    
+    var trailingNumber: String? {
+        var outputString = self.outputString
+        var trailingNumber = ""
+        while let last = outputString.last, last.isNumber || last == "." {
+            trailingNumber.insert(last, at: trailingNumber.startIndex)
+            outputString.removeLast()
+        }
+        if trailingNumber.isEmpty {
+            return nil
+        } else {
+            return trailingNumber
+        }
+    }
 }
 
 extension Collection where Element: Equatable {

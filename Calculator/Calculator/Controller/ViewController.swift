@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  Calculator
 //
-//  Created by ILLIA HARKAVY on 9/17/20.
-//  Copyright © 2020 ILLIA HARKAVY. All rights reserved.
+//  Created by LIUBOU KOZUS on 9/17/20.
+//  Copyright © 2020 LIUBOU KOZUS. All rights reserved.
 //
 
 import UIKit
