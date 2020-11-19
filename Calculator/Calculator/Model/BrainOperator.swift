@@ -10,6 +10,7 @@ enum BrainOperator: String, CaseIterable {
     case plus = "+"
     case minus = "−"
     case root = "√"
+    case cubicroot = "∛"
     case multiply = "×"
     case divide = "÷"
     case percent = "%"
@@ -29,7 +30,7 @@ enum BrainOperator: String, CaseIterable {
         switch self {
         case .plus, .minus, .multiply, .divide, .percent:
             return true
-        case .root, .sin, .cos:
+        case .root, .cubicroot, .sin, .cos:
             return false
         }
     }
