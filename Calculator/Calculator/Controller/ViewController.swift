@@ -14,7 +14,6 @@ class ViewController: UIViewController {
         
         didSet {
             textField.text = brain.outputString
-            
         }
     }
     
