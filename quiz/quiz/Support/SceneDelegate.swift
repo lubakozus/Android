@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  quiz
+//  Quiz
 //
-//  Created by Luba Kozus on 19.11.20.
+//  Created by ILLIA HARKAVY on 19.11.20.
 //
 
 import UIKit
